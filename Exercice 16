@@ -1,0 +1,40 @@
+chaine = input("Saississez deux mots séparés de même longueur par un espace : ")
+a = int(len(chaine))
+
+def distance_hamming():
+    chaine1 = ""
+    chaine2 = ""
+    b = 0   # Valeur qui permettra de dire que la présence d'un espace a été vérifié ou non
+    c1 = 0  # Permet de compter le nombre de caractères avant l'espace
+    c2 = 0  # Permet de compter le nombre de caractères après l'espace
+    same = 0    # Variable désignant la distance de Hamming
+
+    for i in range (0, a) :
+        # Vérification de l'emplacement de l'espace
+        if chaine[i] == " ":
+            b = 1
+        elif chaine[i - 1] == " ":
+            b = 2
+        
+        # Augmente le comteur avant ou après l'espace en fonction de la valeur de b (ne fait rien si b = 1)
+        if b == 0 :
+            c1 += 1
+            chaine1 += chaine[i]
+        elif b == 2 :
+            c2 += 1
+            chaine2 += chaine[i]
+        i += 1
+
+    # Compare les deux compteurs en commençant par la longueur
+    if c1 == c2:
+        print("Les mots sont bien de même longueur")
+        # Compare chaque caractère 
+        for j in range(0, c1):
+            if chaine1[j] != chaine2[j] :
+                same += 1
+        print("La distance de hamming est donc de :", same)
+    else :
+        print("Les deux mots ne sont pas de même longueur ! ")
+
+
+distance_hamming()
