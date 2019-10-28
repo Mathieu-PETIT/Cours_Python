@@ -1,0 +1,13 @@
+mot = str(input("Choisissez un mot et vérifions que c'est un palindrome : "))
+
+def palindrome():
+    # Inversion de la chaine de caractère dans une autre variable
+    test = mot[::-1]
+    print(mot, "à l'envers est :", test)
+    # Test pour vérifier que les deux chaines de caractères sont équivalentes
+    if test == mot :
+        print("C'est donc un palindrome !")
+    else :
+        print("Ce n'est pas un palindrome ...")
+
+palindrome()
