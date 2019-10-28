@@ -1,0 +1,49 @@
+# Attribution des variables
+Moutarde = "CCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAAGGAAAAGCAGC"
+Rose = "CTCCTGATGCTCCTCGCTTGGTGGTTTGAGTGGACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGG"
+Pervenche = "AAGCTCGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGTACTCCGCGCGCCGGGACAGAATGCC"
+Leblanc = "CTGCAGGAACTTCTTCTGGAAGTACTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAG"
+
+# Valeurs à tester
+c1 = "CATA"
+c2 = "ATGC"
+
+# Attribution de la longueur des différentes chaines à une variable
+b = int(len(Moutarde))
+
+# Permet de retourner le nom du coupable
+def define_name_var(rname):
+    if rname == Moutarde :
+        print("Colonel Moutarde est coupable !")
+    elif rname == Rose :
+        print("Mlle Rose est coupable !")
+    elif rname == Leblanc :
+        print("Mr. Leblanc est coupable !")
+    elif rname == Pervenche :
+        print("Mme Pervenche est coupable !")
+
+# Test qui le coupable
+def test_suspect(suspect):
+    # Attribution du suspect à une variable pour ne pas modifier celle d'origine 
+    # qui sera renvoyée à la fin de la fonction
+    test = suspect
+    # On vérifie que les deux valeurs à tester sont présentes
+    if c1 in suspect and c2 in suspect :
+        for i in (0,b) :
+            # On remplace chaque valeur de c1 (1 fois) dans la chaine par des "" 
+            # pour éviter un résultat avec les deux morceaux d'ADN en un segment
+            # Permet également de gérer l'ordre dans lequel doivent apparaître 
+            # les segments d'ADN
+            test = test.replace(c1, "", 1)
+        # Si c2 est encore présent sans c1, lance la fonction retournant le coupable
+        if c2 in test :
+            define_name_var(suspect)
+
+# Exécute la fonction test_suspect pour chaque coupable potentiel
+def début_test() :
+    test_suspect(Moutarde)
+    test_suspect(Rose)
+    test_suspect(Pervenche)
+    test_suspect(Leblanc)
+
+début_test()
