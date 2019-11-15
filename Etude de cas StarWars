@@ -1,0 +1,130 @@
+class Film :
+    # On définit le constructeur
+    def __init__(self, titre = "Star Wars", annee = "1977", numero="I", cout ="1000000", recette="2000000", LActeurs=[]):
+        self.LActeurs = LActeurs
+        self.titre = titre
+        self.annee = annee
+        self.numero = numero
+        self.cout = cout
+        self.recette = recette
+    # On définit les getters
+    def get_titre(self):
+        return self.titre
+    def get_annee(self):
+        return self.annee
+    def get_numero(self):
+        return self.numero
+    def get_cout(self):
+        return self.cout
+    def get_recette(self):
+        return self.recette
+    # On définit les setters
+    def set_titre(self, titre):
+        self.titre = titre
+    def set_annee(self, annee):
+        self.annee = annee
+    def set_numero(self, numero):
+        self.numero = numero
+    def set_cout(self, cout):
+        self.cout = cout
+    def set_recette(self, recette):
+        self.recette = recette
+    # On utilise la méthode __str__
+    def __str__(self):
+        return "Classe Film "+ "Titre : "+ self.titre+ " Année de sortie : "+self.annee+" Numéro d'épisode : "+self.numero+" Cout : "+self.cout+" Recette : "+ self.recette
+
+class Acteur :
+    def __init__(self, nom, prenom, personnages=[]):
+        self.nom = nom
+        self.prenom = prenom
+        self.personnages = personnages
+    def get_nom(self):
+        return self.nom
+    def get_prenom(self):
+        return self.prenom
+
+    def set_nom(self,nom):
+        self.nom = nom
+    def set_prenom(self,prenom):
+        self.prenom = prenom
+
+    def __str__(self):
+        return "Classe Acteurs : "+"Nom : "+self.nom+" Prenom : "+self.prenom
+
+class Personnage :
+    def __init__(self, nom, prenom):
+        self.nom = nom
+        self.prenom = prenom
+
+    def get_nom(self):
+        return self.nom
+    def get_prenom(self):
+        return self.prenom
+
+    def set_nom(self,nom):
+        self.nom = nom
+    def set_prenom(self,prenom):
+        self.prenom = prenom
+
+    def __str__(self):
+        return "Classe Personnages : "+ "Nom : "+ self.nom+ " Prenom : "+self.prenom
+
+class Gentil :
+    def __init__(self, force):
+        self.force = force
+
+    def get_force(self):
+        return self.force
+
+    def set_force(self, force):
+        self.force = force
+
+    def __str__(self):
+        return "Force : "+ self.force
+
+class Méchant:
+    def __init__(self, obscur):
+        self.obscur = obscur
+
+    def get_force(self):
+        return self.obscur
+
+    def set_force(self, obscur):
+        self.obscur = obscur
+
+    def __str__(self):
+        return "Côté obscur : "+ self.obscur
+
+F1 = Film(titre = "Star Wars : Un nouvel espoir", numero = "IV")
+
+print(F1.get_titre(), F1.get_annee(), F1.get_numero(), F1.get_cout(), F1.get_recette())
+F2 = Film()
+
+# tit = input("Saisissez un titre : ")
+# ann = input("Saisissez l'année : ")
+# num = input("Saisissez le numéro de l'épisode : ")
+# cou = str(input("Saisissez le cout de production : "))
+# rec = str(input("Saisissez la recette : "))
+# F2 = Film(titre=tit, annee=ann, numero=num, cout=cou, recette=rec)
+print(F2.get_titre(), F2.get_annee(), F2.get_numero(), F2.get_cout(), F2.get_recette())
+
+no = input("Sélectionnez le nom d'un personnage : ")
+pren = input("Son prénom : ")
+P1 = Personnage(nom=no,prenom=pren)
+print(P1.get_nom(),P1.get_prenom())
+
+StarWars = [F1,F2,P1]
+for i in range(0,len(StarWars)):
+    print(StarWars[i])
+
+A1 = Acteur(nom="Ford",prenom="Harrison")
+A2 = Acteur(nom="Nelson",prenom="Liam")
+Lacteurs = [A1,A2]
+print(Lacteurs)
+
+F3=Film(titre="L'Empire contre attaque",numero="V",annee="1980",LActeurs=Lacteurs)
+print(F3)
+P2 = Personnage(nom="Solo",prenom="Ian")
+Roles= [P1,P2]
+A3 = Acteur(nom="Portman",prenom="Nathalie",personnages=Roles)
+print(A3)
