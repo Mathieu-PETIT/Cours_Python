@@ -1,10 +1,7 @@
 import csv
-from UI import *
-csvfichier = open(r'C:\Users\PTWV699\Documents\Python\Open Data Festival\panorama-des-festivals.csv',encoding='utf-8',newline="")
-reader = csv.reader(csvfichier, delimiter=";")
+from IHM import *
 
-interface = UI(Tk())
+
+interface = IHM(Tk())
 interface.mainloop()
 interface.destroy()
-
-
